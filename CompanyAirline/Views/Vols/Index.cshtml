@@ -1,0 +1,62 @@
+﻿@model IEnumerable<CompanyAirline.Models.Company.Vol>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<p>
+    <a asp-action="VolsAndTheirPilotes" class="button">VolsAndTheirPilotes</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VilleDepart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VilleArrive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tarif)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Avion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pilote )
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VilleDepart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VilleArrive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tarif)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Avion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pilote.Id)
+            </td>
+            <td> 
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-secondary">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-warning">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

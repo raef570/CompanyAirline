@@ -1,0 +1,68 @@
+﻿@model IEnumerable<CompanyAirline.Models.Company.Vol>
+
+@{
+    ViewData["Title"] = "SearchBy2";
+}
+
+<h1>SearchBy2</h1>
+<form action="/Vols/SearchBy2" method="post">
+    <select name="avion">
+        <option value="ALL">ALL</option>
+        @foreach (var item in ViewBag.Avion)
+        {
+            <option value=@item> @item</option>
+        }
+    </select>
+    <input type="text" name="ville_depart" />
+    <button type="submit">Submit</button>
+</form>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VilleDepart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VilleArrive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tarif)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Avion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pilote)
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VilleDepart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VilleArrive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tarif)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Avion)
+            </td>
+         
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

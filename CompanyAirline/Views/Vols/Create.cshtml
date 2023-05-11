@@ -1,0 +1,52 @@
+﻿@model CompanyAirline.Models.Company.Vol
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Vol</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="VilleDepart" class="control-label"></label>
+                <input asp-for="VilleDepart" class="form-control" />
+                <span asp-validation-for="VilleDepart" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VilleArrive" class="control-label"></label>
+                <input asp-for="VilleArrive" class="form-control" />
+                <span asp-validation-for="VilleArrive" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tarif" class="control-label"></label>
+                <input asp-for="Tarif" class="form-control" />
+                <span asp-validation-for="Tarif" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Avion" class="control-label"></label>
+                <input asp-for="Avion" class="form-control" />
+                <span asp-validation-for="Avion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PiloteId" class="control-label"></label>
+                <select asp-for="PiloteId" class ="form-control" asp-items="ViewBag.PiloteId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
